@@ -1,10 +1,10 @@
-import { Grid, Box, Typography } from '@mui/material';
+import { Grid, Box, Typography, Button } from '@mui/material';
+import Link from '@/components/Link';
 import ProTip from '@/components/ProTip';
 import Copyright from '@/components/Copyright';
 import NavBar from '@/components/NavBar';
 
-
-export default function Home() {
+export default function About() {
 
   return (
     <Box>
@@ -22,8 +22,14 @@ export default function Home() {
       >
 
         <Typography variant="h4" component="h1" gutterBottom>
-          NextJS - MaterialUI v5 - Template Project
+          About Page
         </Typography>
+
+        <Box maxWidth="sm">
+          <Button variant="contained" component={Link} noLinkStyle href="/">
+            Go to the home page
+          </Button>
+        </Box>
 
         <ProTip />
 
