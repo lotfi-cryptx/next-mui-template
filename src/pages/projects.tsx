@@ -7,7 +7,7 @@ export default function Home() {
     <DashboardLayout>
       <div>
         <Typography variant="h3" component="p" textAlign="center">
-          Index Page
+          Projects Page
         </Typography>
       </div>
     </DashboardLayout>
