@@ -66,7 +66,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       <Box
         bgcolor="background.default"
         color="text.primary"
-        minHeight="200vh"
+        minHeight="100vh"
       >
         <Box
           position="fixed"
@@ -101,11 +101,12 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     <Box
       bgcolor="background.default"
       color="text.primary"
-      minHeight="200vh"
+      minHeight="100vh"
     >
       <Box
         position="fixed"
         minWidth="100%"
+        zIndex={10}
       >
         <NavBar />
       </Box>

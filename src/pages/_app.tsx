@@ -1,11 +1,13 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider as NextThemeProvider } from 'next-themes';
+import ThemeProvider from '@/components/ThemeProvider';
+import { useTheme } from 'next-themes';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import createEmotionCache from '@/config/createEmotionCache';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import constructTheme from '@/config/theme';
-import { themeModeStore } from '@/store/themeMode';
+import { lightTheme, darkTheme } from '@/config/theme';
+import { useEffect, useState } from 'react';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -18,19 +20,26 @@ const queryClient = new QueryClient;
 
 export default function MyApp(props: MyAppProps) {
 
-  const themeMode = themeModeStore((state) => state.themeMode);
-  const theme = constructTheme(themeMode);
+  const { resolvedTheme } = useTheme();
+  const [currentTheme, setCurrentTheme] = useState(darkTheme);
+
+  useEffect(() => {
+    resolvedTheme === "light"
+      ? setCurrentTheme(lightTheme)
+      : setCurrentTheme(darkTheme);
+  }, [resolvedTheme]);
+
 
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <title>Next MUI Template</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <meta name="theme-color" content={theme.palette.primary.main} />
-      </Head>
-      <ThemeProvider theme={theme}>
-        <>
+    <NextThemeProvider>
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <title>Next MUI Template</title>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+          <meta name="theme-color" content={currentTheme.palette.primary.main} />
+        </Head>
+        <ThemeProvider>
           {/* {console.log("theme", theme.palette.mode)} */}
           <QueryClientProvider client={queryClient}>
             <div>
@@ -43,8 +52,8 @@ export default function MyApp(props: MyAppProps) {
               <Component {...pageProps} />
             </div>
           </QueryClientProvider>
-        </>
-      </ThemeProvider>
-    </CacheProvider >
+        </ThemeProvider>
+      </CacheProvider >
+    </NextThemeProvider>
   );
 }

@@ -1,10 +1,9 @@
 import { createTheme } from '@mui/material/styles';
 
 
-// Create light theme instance.
-const constructTheme = (mode: "light" | "dark") => (createTheme({
+export const lightTheme = createTheme({
   palette: {
-    mode: mode,
+    mode: "light",
     // primary: {
     //   main: '#a4a7b3',
     // },
@@ -12,6 +11,16 @@ const constructTheme = (mode: "light" | "dark") => (createTheme({
     //   main: '#19857b',
     // },
   }
-}));
+});
 
-export default constructTheme;
+export const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    // primary: {
+    //   main: '#a4a7b3',
+    // },
+    // secondary: {
+    //   main: '#19857b',
+    // },
+  }
+});

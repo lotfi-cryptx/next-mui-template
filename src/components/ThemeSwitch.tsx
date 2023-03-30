@@ -1,19 +1,18 @@
-import { themeModeStore } from "@/store/themeMode";
 import { Brightness3, Brightness7 } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
+import { useTheme } from "next-themes";
 
 
 export default function ThemeSwitch() {
 
-  const themeMode = themeModeStore((state) => state.themeMode)
-  const setThemeMode = themeModeStore((state) => state.setThemeMode)
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <IconButton
-      onClick={() => { themeMode === "light" ? setThemeMode("dark") : setThemeMode("light") }}
+      onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
       sx={{ ml: 1 }}
       color="inherit"
     >
-      {themeMode === "light" ? <Brightness3 /> : <Brightness7 />}
+      {resolvedTheme === "light" ? <Brightness3 /> : <Brightness7 />}
     </IconButton>)
 }
