@@ -7,6 +7,7 @@ specifiers:
   '@emotion/styled': ^11.10.6
   '@mui/icons-material': ^5.11.11
   '@mui/material': ^5.11.14
+  '@mui/system': ^5.11.15
   '@tanstack/react-query': ^4.28.0
   '@types/node': 18.15.9
   '@types/react': 18.0.29
@@ -28,6 +29,7 @@ dependencies:
   '@emotion/styled': 11.10.6_zor2bu4ftuliqy4oeppgoopsea
   '@mui/icons-material': 5.11.11_oukiqkomdonkpy3lx3zzu42idy
   '@mui/material': 5.11.14_fnqbmkzq76f7s3wszy2zei75o4
+  '@mui/system': 5.11.15_gtis2il6psfhtfszsb2riwaf54
   '@tanstack/react-query': 4.28.0_biqbaboplfbrettd7655fr4n2y
   '@types/node': 18.15.9
   '@types/react': 18.0.29
@@ -347,7 +349,7 @@ packages:
       '@emotion/styled': 11.10.6_zor2bu4ftuliqy4oeppgoopsea
       '@mui/base': 5.0.0-alpha.122_aen5vu2fkbnw3ssyd5drxdxkh4
       '@mui/core-downloads-tracker': 5.11.14
-      '@mui/system': 5.11.14_gtis2il6psfhtfszsb2riwaf54
+      '@mui/system': 5.11.15_gtis2il6psfhtfszsb2riwaf54
       '@mui/types': 7.2.3_@types+react@18.0.29
       '@mui/utils': 5.11.13_react@18.2.0
       '@types/react': 18.0.29
@@ -400,8 +402,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@mui/system/5.11.14_gtis2il6psfhtfszsb2riwaf54:
-    resolution: {integrity: sha512-/MBv5dUoijJNEKEGi5tppIszGN0o2uejmeISi5vl0CLcaQsI1cd+uBgK+JYUP1VWvI/MtkWRLVSWtF2FWhu5Nw==}
+  /@mui/system/5.11.15_gtis2il6psfhtfszsb2riwaf54:
+    resolution: {integrity: sha512-vCatoWCTnAPquoNifHbqMCMnOElEbLosVUeW0FQDyjCq+8yMABD9E6iY0s14O7iq1wD+qqU7rFAuDIVvJ/AzzA==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@emotion/react': ^11.5.0
